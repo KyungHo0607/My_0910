@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:padding="0dp"
+    android:background="@color/white">
+
+    <!-- 제목 텍스트 -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="체어맨"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:background="#D3D3D3"
+        android:padding="16dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- 첫 번째 버튼 -->
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="a 기관 예약하기"
+        android:background="#D3D3D3"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 두 번째 버튼 -->
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="b 기관 예약하기"
+        android:background="#D3D3D3"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 세 번째 버튼 -->
+    <Button
+        android:id="@+id/buttonMyReservationStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="나의 예약 현황"
+        android:background="#D3D3D3"
+        android:layout_marginTop="16dp" />
+
+
+
+
+</LinearLayout>

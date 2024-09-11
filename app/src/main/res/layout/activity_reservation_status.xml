@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="0dp"
+    android:gravity="top"
+    android:background="@color/white">
+
+    <!-- 예약 현황 제목 -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="예약 현황"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:background="#D3D3D3"
+        android:padding="16dp" />
+
+    <!-- 예약 내용 표시 영역 -->
+    <TextView
+        android:id="@+id/reservationInfoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="예약된 내용이 없습니다."
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="#808080"
+        android:padding="16dp" />
+
+</LinearLayout>
