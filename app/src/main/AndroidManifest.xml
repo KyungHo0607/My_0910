@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- 위치 권한 추가 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +20,11 @@
         android:theme="@style/Theme.My_0910"
         tools:targetApi="31">
 
+        <!-- LoginActivity 설정 -->
+        <activity android:name=".LoginActivity"
+            android:exported="true">
+        </activity>
+
         <!-- SplashActivity 설정 -->
         <activity android:name=".SplashActivity"
             android:exported="true">
@@ -21,6 +33,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<!--FindIdActivity-->
+        <activity android:name=".FindIdActivity" android:exported="true"/>
+<!-- FindPasswordActivity-->
+        <activity android:name=".FindPasswordActivity" android:exported="true"/>
+<!--   SignUpActivity -->
+        <activity android:name=".SignUpActivity" android:exported="true"/>
+
 
         <!-- MainActivity 설정 -->
         <activity
@@ -33,9 +52,17 @@
             android:name=".ReservationActivity"
             android:exported="true">
         </activity>
+    <!--ReservationBActivity-->
+        <activity android:name=".ReservationBActivity"
+            android:exported="true">
+        </activity>
+
         <!-- ReservationStatusActivity  나의 예약현황 창-->
         <activity android:name=".ReservationStatusActivity"
             android:exported="true" />
+        <!--findLocationActivity기관찾기-->
+<!--        <activity android:name=".FindLocationActivity" android:exported="true"/>-->
+
 
 
     </application>

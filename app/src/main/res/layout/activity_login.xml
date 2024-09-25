@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="0dp"
+    android:gravity="top"
+    android:background="@color/white">
+
+    <!-- 제목 -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:background="#D3D3D3"
+        android:padding="20dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- 아이디 입력 필드 -->
+    <EditText
+        android:id="@+id/loginId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="아이디"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:textColorHint="#808080"
+        android:textColor="#000000" />
+
+    <!-- 비밀번호 입력 필드 -->
+    <EditText
+        android:id="@+id/loginPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호"
+        android:layout_marginBottom="16dp"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:textColorHint="#808080"
+        android:textColor="#000000"
+        android:inputType="textPassword" />
+
+    <!-- 버튼 레이아웃 수평 정렬 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/findIdButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="아이디찾기"
+            android:background="#D3D3D3"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/findPasswordButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="비밀번호찾기"
+            android:background="#D3D3D3"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/signupButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="회원가입"
+            android:background="#D3D3D3" />
+    </LinearLayout>
+
+    <!-- 로그인 버튼 -->
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인하기"
+        android:background="#D3D3D3"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

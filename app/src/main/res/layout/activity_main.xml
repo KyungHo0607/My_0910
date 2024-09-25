@@ -37,8 +37,16 @@
         android:text="b 기관 예약하기"
         android:background="#D3D3D3"
         android:layout_marginBottom="16dp" />
+    <!--세 번째 버튼-->
+    <Button
+        android:id="@+id/findLocationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="기관 찾기"
+        android:background="#D3D3D3"
+        android:layout_marginBottom="16dp" />
 
-    <!-- 세 번째 버튼 -->
+    <!-- 네 번째 버튼 -->
     <Button
         android:id="@+id/buttonMyReservationStatus"
         android:layout_width="match_parent"

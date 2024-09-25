@@ -6,42 +6,60 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        // "a 기관 예약하기" 버튼 클릭 시 ReservationActivity로 이동
-        Button button1 = findViewById(R.id.button1);
-        button1.setOnClickListener(new View.OnClickListener() {
+        // 아이디 및 비밀번호 입력 필드
+        EditText loginId = findViewById(R.id.loginId);
+        EditText loginPassword = findViewById(R.id.loginPassword);
+
+        // 로그인 버튼
+        Button buttonLogin = findViewById(R.id.buttonLogin);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ReservationActivity.class);
+                // 아이디와 비밀번호가 비어 있어도 무조건 로그인 처리
+                Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        // 아이디 찾기 버튼
+        Button findIdButton = findViewById(R.id.findIdButton);
+        findIdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, FindIdActivity.class);
                 startActivity(intent);
             }
         });
 
-        // "b 기관 예약하기" 버튼 클릭 시 ReservationBActivity로 이동
-        Button button2 = findViewById(R.id.button2);
-        button2.setOnClickListener(new View.OnClickListener() {
+        // 비밀번호 찾기 버튼
+        Button findPasswordButton = findViewById(R.id.findPasswordButton);
+        findPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ReservationBActivity.class);
+                Intent intent = new Intent(LoginActivity.this, FindPasswordActivity.class);
                 startActivity(intent);
             }
         });
 
-
-        // "나의 예약 현황" 버튼 클릭 시 ReservationStatusActivity로 이동
-        Button reservationStatusButton = findViewById(R.id.buttonMyReservationStatus);
-        reservationStatusButton.setOnClickListener(new View.OnClickListener() {
+        // 회원가입 버튼
+        Button signUpButton = findViewById(R.id.signupButton);
+        signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ReservationStatusActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });
