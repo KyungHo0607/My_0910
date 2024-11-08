@@ -5,8 +5,8 @@
     <!-- 위치 권한 추가 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 인터넷 권한 추가 -->
     <uses-permission android:name="android.permission.INTERNET"/>
-
 
 
     <application
@@ -33,35 +33,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--FindIdActivity-->
+
+        <!-- FindIdActivity 설정 -->
         <activity android:name=".FindIdActivity" android:exported="true"/>
-<!-- FindPasswordActivity-->
+        <!-- FindPasswordActivity 설정 -->
         <activity android:name=".FindPasswordActivity" android:exported="true"/>
-<!--   SignUpActivity -->
+        <!-- SignUpActivity 설정 -->
         <activity android:name=".SignUpActivity" android:exported="true"/>
 
-
         <!-- MainActivity 설정 -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+        <activity android:name=".MainActivity" android:exported="true" />
+
+        <!-- ReservationActivity 설정 -->
+        <activity android:name=".ReservationActivity" android:exported="true" />
+
+        <!-- ReservationStatusActivity 설정 -->
+        <activity android:name=".ReservationStatusActivity" android:exported="true" />
+
+        <!-- FindLocationActivity 설정 (기관 찾기) -->
+        <activity android:name=".FindLocationActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
 
-        <!-- ReservationActivity 설정 (새로운 액티비티 추가) -->
-        <activity
-            android:name=".ReservationActivity"
-            android:exported="true">
-        </activity>
-    <!--ReservationBActivity-->
-        <activity android:name=".ReservationBActivity"
-            android:exported="true">
-        </activity>
+        <!-- WebViewActivity 설정 (웹뷰 설정) -->
+        <activity android:name=".WebViewActivity" android:exported="true" />
+        <!-- 공지사항 버튼 동작 -->
+        <activity android:name=".NoticeActivity" />
+        <!-- 마이페이지 버튼 동작 -->
+        <activity android:name=".CommunityActivity" />
 
-        <!-- ReservationStatusActivity  나의 예약현황 창-->
-        <activity android:name=".ReservationStatusActivity"
-            android:exported="true" />
-        <!--findLocationActivity기관찾기-->
-<!--        <activity android:name=".FindLocationActivity" android:exported="true"/>-->
 
 
 
