@@ -1,80 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 메인 화면 컨텐츠 영역 -->
-    <LinearLayout
+    <!-- ScrollView로 전체 레이아웃 감싸기 -->
+    <android.widget.ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/white">
+        android:layout_height="match_parent">
 
-        <!-- 툴바 -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <!-- 메인 화면 컨텐츠 영역 -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#D3D3D3"
-            android:title="체어맨"
-            android:titleTextColor="#FFFFFF" />
+            android:orientation="vertical"
+            android:background="@color/white">
 
-        <!-- 툴바 아래 간격 추가 -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            <!-- 툴바 -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:title="체어맨"
+                android:titleTextColor="#000000"
+                app:menu="@menu/main_menu" />
 
-        <!-- 첫 번째 버튼 -->
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="화성시 복지센터"
-            android:backgroundTint="#4DA3FF"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="16dp" />
+            <!-- 툴바 아래 간격 추가 -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
 
-        <!-- 두 번째 버튼 -->
-        <!--
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="국민건강 보험공단"
-            android:backgroundTint="#4DA3FF"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="16dp" />
-        -->
-        <!-- 세 번째 버튼 -->
-        <Button
-            android:id="@+id/findLocationButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="기관 찾기"
-            android:backgroundTint="#555555"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="16dp" />
+            <!-- 버튼 배치용 GridLayout -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:layout_marginBottom="16dp">
 
-        <!-- 네 번째 버튼 -->
-        <Button
-            android:id="@+id/buttonMyReservationStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="나의 예약 현황"
-            android:backgroundTint="#555555"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="16dp" />
-    </LinearLayout>
+                <!-- 첫 번째 버튼 -->
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:text="화성시 복지센터"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_marginBottom="8dp" />
 
-    <!-- 네비게이션 메뉴 -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="#FFFFFF"
-        app:menu="@menu/main_menu" />
+                <!-- 두 번째 버튼 -->
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:text="기관 찾기"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- 세 번째 버튼 -->
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="2"
+                    android:text="나의 예약 현황"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:layout_row="1"
+                    android:layout_columnSpan="2"
+                    android:layout_marginBottom="8dp" />
+
+            </GridLayout>
+
+            <!-- 하단 메뉴 -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:layout_marginTop="370dp"
+                android:weightSum="4">
+
+                <!-- 네 개의 버튼을 4등분하여 배치 -->
+                <Button
+                    android:id="@+id/homeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="홈"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground" />
+
+                <Button
+                    android:id="@+id/memberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="회원정보"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground" />
+
+                <Button
+                    android:id="@+id/noticeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="공지사항"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground" />
+
+                <Button
+                    android:id="@+id/chatbotButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="챗봇"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.widget.ScrollView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -33,41 +32,38 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("체어맨");
         }
 
-        // "a 기관 예약하기" 버튼 클릭 시 ReservationActivity로 이동
-        Button button1 = findViewById(R.id.button1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ReservationActivity.class);
-                startActivity(intent);
-            }
+        // "메인페이지" 하단 버튼 클릭 시 MainActivity로 이동
+        Button homeButton = findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(v -> {
+            // 이미 MainActivity에 있으므로 특별한 동작 필요 없음
         });
 
-
-        // "기관 찾기" 버튼 클릭 시 FindLocationActivity로 이동
-        Button findLocationButton = findViewById(R.id.findLocationButton);
-        findLocationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FindLocationActivity.class);
-                startActivity(intent);
-            }
+        // "회원정보" 하단 버튼 클릭 시 CommunityActivity로 이동
+        Button memberButton = findViewById(R.id.memberButton);
+        memberButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CommunityActivity.class);
+            startActivity(intent);
         });
 
-        // "나의 예약 현황" 버튼 클릭 시 ReservationStatusActivity로 이동
-        Button reservationStatusButton = findViewById(R.id.buttonMyReservationStatus);
-        reservationStatusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ReservationStatusActivity.class);
-                startActivity(intent);
-            }
+        // "공지사항" 하단 버튼 클릭 시 NoticeActivity로 이동
+        Button noticeButton = findViewById(R.id.noticeButton);
+        noticeButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, NoticeActivity.class);
+            startActivity(intent);
+        });
+
+        // "챗봇" 하단 버튼 클릭 시 ChatbotActivity로 이동
+        Button chatbotButton = findViewById(R.id.chatbotButton);
+        chatbotButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ChatbotActivity.class);
+            startActivity(intent);
         });
     }
 
     // 메뉴 생성
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // 메뉴를 inflate하여 툴바에 추가
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
@@ -79,17 +75,6 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.menu_logout) {
             showLogoutConfirmationDialog(); // 로그아웃 대화상자 표시
             return true;
-        } else if (id == R.id.menu_notice) { // 공지사항 메뉴 클릭 시
-            Intent intent = new Intent(MainActivity.this, NoticeActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.menu_community) { // 커뮤니티 메뉴 클릭 시
-            Intent intent = new Intent(MainActivity.this, CommunityActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == android.R.id.home) { // 뒤로 가기 버튼 클릭 시
-            showExitConfirmationDialog(); // 앱 종료 대화상자 표시
-            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -99,38 +84,8 @@ public class MainActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("로그아웃")
                 .setMessage("로그아웃하시겠습니까?")
-                .setPositiveButton("예", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        logout();
-                    }
-                })
-                .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .show();
-    }
-
-    // 앱 종료 여부를 묻는 대화상자 표시
-    private void showExitConfirmationDialog() {
-        new AlertDialog.Builder(this)
-                .setTitle("앱 종료")
-                .setMessage("종료하시겠습니까?")
-                .setPositiveButton("예", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                })
-                .setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
+                .setPositiveButton("예", (dialog, which) -> logout())
+                .setNegativeButton("아니오", (dialog, which) -> dialog.dismiss())
                 .show();
     }
 
@@ -151,5 +106,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         showExitConfirmationDialog();
+    }
+
+    // 앱 종료 여부를 묻는 대화상자 표시
+    private void showExitConfirmationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("앱 종료")
+                .setMessage("종료하시겠습니까?")
+                .setPositiveButton("예", (dialog, which) -> finish())
+                .setNegativeButton("아니오", (dialog, which) -> dialog.dismiss())
+                .show();
     }
 }
