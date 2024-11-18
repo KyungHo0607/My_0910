@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!-- 툴바 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:title="공지사항"
+        android:titleTextColor="#000000" />
+
+    <!-- 기타 레이아웃 요소들 -->
+    <TextView
+        android:id="@+id/noticeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="공지사항 내용이 여기에 표시됩니다."
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#808080" />
+
+    <!-- 하단 메뉴 버튼들 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_marginTop="0dp"
+        android:weightSum="4">
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="홈"
+            android:textSize="18dp"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/home_2"/>
+
+        <Button
+            android:id="@+id/memberButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="회원정보"
+            android:textSize="18dp"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/user_2"/>
+
+        <Button
+            android:id="@+id/noticeButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="공지사항"
+            android:textSize="18dp"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/info_2"/>
+
+        <Button
+            android:id="@+id/chatbotButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="챗봇"
+            android:textSize="18dp"
+            android:textColor="#000000"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/chatbot_5"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
